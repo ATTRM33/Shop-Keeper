@@ -1,16 +1,16 @@
 #pragma once
 
 #include <string>
+#include "Purchaseable.h"
 
-class Items
+class Items : protected Purchaseable
 { private:
-	std::string description;
-	int quantity;
-	int price;
+	std::string name;
+	int numOfUses;
+	
 public:
-	Items(std::string description, int weight, int quantity, int value);
-	int getPrice() { return price; }
-	int getQuantity() { return quantity; }
+	Items(std::string name, int numOfUses);
+	int GetNumOfUses() { return numOfUses; }
 
 };
 

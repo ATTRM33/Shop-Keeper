@@ -6,9 +6,9 @@
 
 class Weapon : Items
 {private:
-	std::string Name;
+	int damage;
 public:
-	
+	virtual void attack();
 
 };
 

@@ -3,7 +3,10 @@
 #include "Items.h"
 
 
-class Armor : Items
-{
+class Armor : protected Items
+{private:
+	int armorClass;
+public:
+	virtual void negateDamage();
 };
 
