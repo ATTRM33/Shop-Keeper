@@ -5,8 +5,13 @@
 #include "Weapon.h"
 #include "Bow.h"
 #include "Player.h"
+#include "VendorMenu.h"
 
 int main() {
 
+	
+	VendorMenu menu;
+
+	menu.displayMainMenu();
 	
 }

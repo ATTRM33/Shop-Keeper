@@ -17,8 +17,9 @@ public:
 	Purchaseable();
 	Purchaseable(int price);
 	virtual void buy();
-	void virtual sell();
+	virtual void sell();
 	virtual int getPrice() { return price; }
+	virtual void setPrice(int p) { price = p; }
 };
 
 

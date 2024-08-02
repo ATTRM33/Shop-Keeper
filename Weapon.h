@@ -4,10 +4,12 @@
 #include "Items.h"
 #include <string>
 
-class Weapon : Items
+class Weapon : Purchaseable
 {private:
 	int damage;
 public:
+	using Purchaseable::Purchaseable;
+	Weapon(Purchaseable::)
 	virtual void attack();
 
 };

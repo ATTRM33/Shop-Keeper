@@ -1,9 +1,17 @@
 #pragma once
 
-#include "Items.h"
+#include "Purchaseable.h"
 
 
-class Potions : Items
-{
+class Potions : Purchaseable
+{private:
+	std::string name;
+	bool isHealingPotion;
+public:
+	using Purchaseable::Purchaseable;
+	Potions();
+	Potions(int price, std::string name, bool isHPotion);
+	bool getIsHealingPotion() { return isHealingPotion; }
+	std::string getName() {return name;}
 };
 

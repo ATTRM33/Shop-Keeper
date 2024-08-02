@@ -10,16 +10,18 @@ private:
 	std::string name;
 	int gold;
 	std::vector <Purchaseable> inventory;
-	int health;
-	int stamina;
-	int magick;
+	
 	
 public:
 	Player(std::string name, int gold, int health, int stamina, int magick);
-	std::string getName();
 	int getGold();
-	void setGold(int goldAmt);
-	void buyItem();
+	void addGold(int amt) { gold = amt; }
+	void removeGold(int amt) { gold = amt; }
+	void addToInventory(Purchaseable* item);
+	void removeFromInventory(Purchaseable* item);
+	void setGold(int goldAmt) { gold = goldAmt; }
+	void displayInventory();
+	
 
 };
 
