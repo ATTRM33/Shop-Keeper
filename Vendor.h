@@ -17,5 +17,6 @@ public:
 	void sellItem(Player& player, Purchaseable* item);
 	void removeItem(Purchaseable* item);
 	void displayStock();
+	void stock();
 };
 

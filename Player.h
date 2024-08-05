@@ -9,7 +9,7 @@ class Player
 private:
 	std::string name;
 	int gold;
-	std::vector <Purchaseable> inventory;
+	std::vector <Purchaseable*> inventory;
 	
 	
 public:
@@ -18,7 +18,7 @@ public:
 	void addGold(int amt) { gold = amt; }
 	void removeGold(int amt) { gold = amt; }
 	void addToInventory(Purchaseable* item);
-	void removeFromInventory(Purchaseable* item);
+	void removeFromInventory(std::string& itemName);
 	void setGold(int goldAmt) { gold = goldAmt; }
 	void displayInventory();
 	

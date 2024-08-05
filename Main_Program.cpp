@@ -3,7 +3,6 @@
 //CS2 Module 4 lab
 
 #include "Weapon.h"
-#include "Bow.h"
 #include "Player.h"
 #include "VendorMenu.h"
 

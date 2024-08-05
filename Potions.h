@@ -2,6 +2,7 @@
 
 #include "Purchaseable.h"
 
+#include <string>
 
 class Potions : Purchaseable
 {private:
@@ -10,7 +11,7 @@ class Potions : Purchaseable
 public:
 	using Purchaseable::Purchaseable;
 	Potions();
-	Potions(int price, std::string name, bool isHPotion);
+	Potions(int price, std::string name);
 	bool getIsHealingPotion() { return isHealingPotion; }
 	std::string getName() {return name;}
 };

@@ -1,15 +1,18 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 
-#include "Items.h"
+#include "Purchaseable.h"
 #include <string>
 
-class Weapon : Purchaseable
+class Weapon : public Purchaseable
 {private:
+	std::string name;
 	int damage;
 public:
+	std::string getName() { return name; }
+	void setName(std::string nm) { name = nm; }
 	using Purchaseable::Purchaseable;
-	Weapon(Purchaseable::)
+	Weapon(std::string name, int damage);
 	virtual void attack();
 
 };

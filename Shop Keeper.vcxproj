@@ -128,25 +128,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Armor.cpp" />
-    <ClCompile Include="Bow.cpp" />
     <ClCompile Include="Items.cpp" />
     <ClCompile Include="Main_Program.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Potions.cpp" />
     <ClCompile Include="Purchaseable.cpp" />
-    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Vendor.cpp" />
     <ClCompile Include="VendorMenu.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Armor.h" />
-    <ClInclude Include="Bow.h" />
     <ClInclude Include="Items.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Potions.h" />
     <ClInclude Include="Purchaseable.h" />
-    <ClInclude Include="Shop.h" />
     <ClInclude Include="Vendor.h" />
     <ClInclude Include="VendorMenu.h" />
     <ClInclude Include="Weapon.h" />
