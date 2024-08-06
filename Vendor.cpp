@@ -16,12 +16,20 @@ void Vendor::addItem(Purchaseable* item) {
 }
 
 void Vendor::removeItem(std::string& itemName) {
-    items.erase(std::remove(items.begin(), items.end(), itemName), items.end());
+    for (auto it = items.begin(); it != items.end(); ++it) {
+        if ((*it)->getName() == itemName) {
+            delete* it;
+            items.erase(it);
+            break;
+        }
+    }
 }
 
 void Vendor::displayStock() {
-    for (Purchaseable* item : items) {
-        std::cout << item << " - " << item->getPrice() << " gold" << std::endl;
+    std::cout << "Shopkeeper Items: " << std::endl;
+    for (const auto& item : items) {
+        std::cout << item->getName() << " - " << item->getDescription()
+            << " (Price: " << item->getPrice() << ", Quantity: " << item->getQuantity() << ")\n";
     }
 }
 

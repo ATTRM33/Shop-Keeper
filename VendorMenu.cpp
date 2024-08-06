@@ -68,8 +68,7 @@ void VendorMenu::sellMenu() {
 
 	std::string itemName;
 	std::cout << "Enter the name of the item you want to sell: ";
-	std::cin.ignore(); 
-	std::getline(std::cin, itemName);
+	std::cin >> itemName;
 
 	bool found = false;
 	for (auto& item : player.getInventory()) {
@@ -90,10 +89,9 @@ void VendorMenu::displayItems(const std::string& category) {
 
 	std::string itemName;
 	std::cout << "Enter the name of the item you want to buy: ";
-	std::cin.ignore();
+	std::cin.ignore(); // Ignore leftover newline character
 	std::getline(std::cin, itemName);
 
-	bool found = false;
 	auto& inventory = vendor.getStock();
 	for (auto it = inventory.begin(); it != inventory.end(); ++it) {
 		if ((*it)->getName() == itemName) {
@@ -101,7 +99,6 @@ void VendorMenu::displayItems(const std::string& category) {
 				player.addToInventory(*it);
 				vendor.removeItem(itemName);
 				(*it)->buy();
-				found = true;
 			}
 			else {
 				std::cout << "You do not have enough gold to buy this item." << std::endl;
@@ -109,4 +106,8 @@ void VendorMenu::displayItems(const std::string& category) {
 			break;
 		}
 	}
+}
+
+bool VendorMenu::playerHasEnoughGold(int price) {
+	return true; 
 }

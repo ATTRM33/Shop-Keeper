@@ -10,7 +10,6 @@ class Weapon : public Purchaseable
 public:
 	
 	using Purchaseable::Purchaseable;
-	Weapon() {}
 	virtual void attack();
 	std::string getName() { return name; }
 	void setName(std::string nm) { name = nm; }

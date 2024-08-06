@@ -10,11 +10,9 @@ class Vendor
 	std::string name;
 	std::vector<Purchaseable*> items;
 public:
-	Vendor() {}
 	Vendor(std::string name);
 	std::string getName() { return name; }
 	void addItem(Purchaseable* item);
-	void sellItem(Player& player, Purchaseable* item);
 	void removeItem(std::string& itemName);
 	void displayStock();
 	std::vector<Purchaseable*>& getStock();

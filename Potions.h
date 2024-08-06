@@ -7,11 +7,9 @@
 class Potions : Purchaseable
 {private:
 	std::string name;
-	bool isHealingPotion;
+	bool isHealingPotion = true;
 public:
 	using Purchaseable::Purchaseable;
-	Potions(){}
-	void use();
 	bool getIsHealingPotion() { return isHealingPotion; }
 	std::string getName() {return name;}
 };

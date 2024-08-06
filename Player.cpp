@@ -13,15 +13,14 @@ void Player::addToInventory(Purchaseable* item) {
 
 
 void Player::removeFromInventory(std::string& itemName) {
-    auto it = std::remove_if(inventory.begin(), inventory.end(), [&](Purchaseable* item) {
-        return item->getName() == itemName;
-        });
-    if (it != inventory.end()) {
-        delete* it;
-        inventory.erase(it, inventory.end());
+    for (auto it = inventory.begin(); it != inventory.end(); ++it) {
+        if ((*it)->getName() == itemName) {
+            delete* it;
+            inventory.erase(it);
+            break;
+        }
     }
 }
-
 
 void Player::displayInventory() {
     std::cout << "Player Inventory:\n";
