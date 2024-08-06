@@ -7,14 +7,13 @@
 class Weapon : public Purchaseable
 {private:
 	std::string name;
-	int damage;
 public:
+	
+	using Purchaseable::Purchaseable;
+	Weapon() {}
+	virtual void attack();
 	std::string getName() { return name; }
 	void setName(std::string nm) { name = nm; }
-	using Purchaseable::Purchaseable;
-	Weapon(std::string name, int damage);
-	virtual void attack();
-
 };
 
 #endif // !WEAPON_H

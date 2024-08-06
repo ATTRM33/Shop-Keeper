@@ -13,14 +13,15 @@ private:
 	
 	
 public:
-	Player(std::string name, int gold, int health, int stamina, int magick);
-	int getGold();
+	Player(std::string name, int gold);
+	int getGold() { return gold; }
 	void addGold(int amt) { gold = amt; }
 	void removeGold(int amt) { gold = amt; }
 	void addToInventory(Purchaseable* item);
 	void removeFromInventory(std::string& itemName);
 	void setGold(int goldAmt) { gold = goldAmt; }
 	void displayInventory();
+	std::vector<Purchaseable*>& getInventory();
 	
 
 };

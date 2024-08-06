@@ -7,7 +7,7 @@
 #include <vector>
 
 #include <iostream>
-Vendor::Vendor(std::string& name) : name(name) {}
+Vendor::Vendor(std::string name) : name(name) {}
 
 
 
@@ -15,16 +15,8 @@ void Vendor::addItem(Purchaseable* item) {
     items.push_back(item);
 }
 
-void Vendor::sellItem(Player& player, Purchaseable* item) {
-    if (player.getGold() >= item->getPrice()) {
-        player.removeGold(item->getPrice());
-        player.addToInventory(item);
-        removeItem(item);
-    }
-}
-
-void Vendor::removeItem(Purchaseable* item) {
-    items.erase(std::remove(items.begin(), items.end(), item), items.end());
+void Vendor::removeItem(std::string& itemName) {
+    items.erase(std::remove(items.begin(), items.end(), itemName), items.end());
 }
 
 void Vendor::displayStock() {
@@ -33,9 +25,8 @@ void Vendor::displayStock() {
     }
 }
 
-void Vendor::stock() {
-    Purchaseable* items[11];
-    items[0] = new Weapon("Longsword", 10);
-    items[1] = new Weapon("Bow", 8);
-    items[2] = new Weapon("Staff", 3);
+
+
+std::vector<Purchaseable*>& Vendor::getStock() {
+    return items;
 }

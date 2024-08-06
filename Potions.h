@@ -10,8 +10,8 @@ class Potions : Purchaseable
 	bool isHealingPotion;
 public:
 	using Purchaseable::Purchaseable;
-	Potions();
-	Potions(int price, std::string name);
+	Potions(){}
+	void use();
 	bool getIsHealingPotion() { return isHealingPotion; }
 	std::string getName() {return name;}
 };

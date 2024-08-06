@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-Player::Player(std::string name, int gold, int health, int stamina, int magick):
+Player::Player(std::string name, int gold):
 name(name), gold(gold) {
 
 }
@@ -23,10 +23,14 @@ void Player::removeFromInventory(std::string& itemName) {
 }
 
 
-void displayInventory() {
+void Player::displayInventory() {
     std::cout << "Player Inventory:\n";
     for (Purchaseable* item : inventory) {
         std::cout << item->getName() << " - " << item->getDescription()
             << " (Price: " << item->getPrice() << ", Quantity: " << item->getQuantity() << ")\n";
     }
+}
+
+std::vector<Purchaseable*>& Player::getInventory() {
+    return inventory;
 }

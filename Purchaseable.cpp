@@ -3,8 +3,7 @@
 
 #include <iostream>
 
-Purchaseable::Purchaseable(){}
-Purchaseable::Purchaseable(std::string name, int price, std::string description, int quantity) : name(name), price(price), description(description), quantity(quantity)  {
+Purchaseable::Purchaseable(std::string name, std::string description,int price, int quantity) : name(name), price(price), description(description), quantity(quantity)  {
 
 }
 void Purchaseable::buy() {

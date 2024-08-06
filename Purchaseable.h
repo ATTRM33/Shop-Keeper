@@ -12,14 +12,15 @@ class Purchaseable
 	std::string description;
 
 public:
-	Purchaseable();
-	Purchaseable(std::string name, int price, std::string description, int quantity);
+	Purchaseable() : price(0), quantity(0){}
+	Purchaseable(std::string name, std::string description,int price,  int quantity);
 	virtual void buy();
 	virtual void sell();
 	virtual std::string getName() { return name; }
 	virtual int getPrice() { return price; }
 	virtual void setPrice(int p) { price = p; }
-	virtual void setPrice(int q) { quantity = q; }
+	virtual void setQuantity(int q) { quantity = q; }
+	virtual int getQuantity() { return quantity; }
 	std::string getDescription() { return description; }
 };
 
