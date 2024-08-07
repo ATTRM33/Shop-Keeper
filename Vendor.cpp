@@ -30,8 +30,8 @@ void Vendor::displayStock() {
     std::cout << "Shopkeeper Items: " << std::endl;
     for (const auto& item : items) {
         std::cout << item->getName() << " - " << item->getDescription()
-            << " (Price: " << item->getPrice() << ", Quantity: " << item->getQuantity() << ")\n";
-        std::cout << "\n";
+            << " (Price: " << item->getPrice() << ", Quantity: " << item->getQuantity() << ")" << std::endl;
+        std::cout << std::endl;
     }
 }
 
