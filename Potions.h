@@ -7,10 +7,14 @@
 
 class Potions : public Purchaseable
 {private:
+	std::string name;
 	bool isHealingPotion = true;
 public:
-	Potions(std::string n, std::string d, int p, int q, bool healing);
+	Potions(int price, std::string name) : Purchaseable(price), name(name) {}
 	bool getIsHealingPotion() { return isHealingPotion; }
+	std::string getName() override { return name; }
+	void buy() override;
+	void sell() override;
 };
 
 #endif 

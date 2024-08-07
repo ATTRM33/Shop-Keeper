@@ -1,5 +1,13 @@
 #include "Potions.h"
+#include <iostream>
 
 
-Potions::Potions(std::string name, std::string description, int price, int quantity, bool healthPotion)
-    : Purchaseable(name, description, price, quantity), isHealingPotion(healthPotion) {}
+void Potions::buy() {
+    
+    std::cout << "Bought a " << name << " for " << price << " gold.\n";
+}
+
+void Potions::sell()  {
+    
+    std::cout << "Sold a " << name << " for " << price << " gold.\n";
+}

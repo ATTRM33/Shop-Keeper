@@ -13,7 +13,7 @@ public:
 	Vendor(std::string name);
 	std::string getName() { return name; }
 	void addItem(Purchaseable* item);
-	void removeItem(std::string& itemName);
+	void removeItem(int itemIndex);
 	void displayStock();
 	std::vector<Purchaseable*>& getStock();
 	

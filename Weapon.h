@@ -10,9 +10,12 @@ class Weapon : public Purchaseable
 public:
 	
 	using Purchaseable::Purchaseable;
+	Weapon(int price, std::string name): Purchaseable(price), name(name) {}
 	virtual void attack();
-	std::string getName() { return name; }
+	std::string getName() override { return name; }
 	void setName(std::string nm) { name = nm; }
+	void buy() override;
+	void sell() override;
 };
 
 #endif // !WEAPON_H

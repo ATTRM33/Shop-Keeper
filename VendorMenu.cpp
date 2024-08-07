@@ -14,13 +14,18 @@ void VendorMenu::displayMainMenu() {
 			std::cout << "1.Buy " << std::endl;
 			std::cout << "2.Sell " << std::endl;
 			std::cout << "3.Exit " << std::endl;
+			std::cout << std::endl;
+			std::cout << "Gold: " << player.getGold() << std::endl;
 			std::cin >> selection;
 
 			switch (selection) {
 			case 1:
+				system("cls");
 				buyMenu();
+				
 				break;
 			case 2:
+				system("cls");
 				sellMenu();
 				break;
 			case 3:
@@ -34,61 +39,68 @@ void VendorMenu::displayMainMenu() {
 }
 
 void VendorMenu::buyMenu() {
-	std::string category = "All";
-	displayItems(category);
+	
+	displayItems("Buy");
 	
 }
 void VendorMenu::sellMenu() {
-	std::cout << "\n**Sell Menu**" << std::endl;
 	player.displayInventory();
 
-	std::string itemName;
-	std::cout << "Enter the name of the item you want to sell: ";
-	std::cin >> itemName;
+	int itemIndex;
+	std::cout << "Enter the index of the item you want to sell: ";
+	std::cin >> itemIndex;
 
-	bool found = false;
-	for (auto& item : player.getInventory()) {
-		if (item->getName() == itemName) {
-			player.removeFromInventory(itemName);
-			vendor.addItem(item);
-			item->sell();
-			found = true;
-		}
+	auto& inventory = player.getInventory();
+
+	std::cout << std::endl;
+	std::cout << "Gold: " << player.getGold() << std::endl;
+
+	if (itemIndex >= 0 && itemIndex < inventory.size()) {
+		Purchaseable* item = inventory[itemIndex];
+		vendor.addItem(item);
+		player.removeFromInventory(itemIndex);
+		item->sell();
+		std::cout << "You sold " << item->getName() << " for " << item->getPrice() << " gold." << std::endl;
+		//player.getGold() += item->getPrice();
+	}
+	else {
+		std::cout << "Invalid item index." << std::endl;
 	}
 }
 
 void VendorMenu::displayItems(const std::string& category) {
-	std::cout << "\n** " << category << " Items **" << std::endl;
 
 	vendor.displayStock();
 
-	std::string itemName;
-	std::cout << "Enter the name of the item you want to buy: ";
-	std::cin.ignore(); // Ignore leftover newline character
-	std::getline(std::cin, itemName);
+	int itemIndex;
+
+	std::cout << "Enter the index of the item you want to buy: ";
+	std::cin >> itemIndex;
 
 	auto& inventory = vendor.getStock();
 
-	auto it = std::find_if(inventory.begin(), inventory.end(), [&](Purchaseable* item) {
-		return item->getName() == itemName;
-		});
+	std::cout << std::endl;
+	std::cout << "Gold: " << player.getGold() << std::endl;
 
-	if (it != inventory.end()) {
-		if (playerHasEnoughGold((*it)->getPrice())) {
-			player.addToInventory(*it);
-			vendor.removeItem(itemName);
-			(*it)->buy();
-			std::cout << "You bought " << itemName << "." << std::endl;
+	if (itemIndex >= 0 && itemIndex < inventory.size()) {
+		Purchaseable* item = inventory[itemIndex];
+		if (playerHasEnoughGold(item->getPrice())) {
+			player.addToInventory(item);
+			vendor.removeItem(itemIndex);
+			item->buy();
+			std::cout << "You bought " << item->getName() << "." << std::endl;
 		}
 		else {
 			std::cout << "You do not have enough gold to buy this item." << std::endl;
 		}
 	}
 	else {
-		std::cout << "Item not found in the vendor's inventory." << std::endl;
+		std::cout << "Invalid item index." << std::endl;
 	}
 }
 
 bool VendorMenu::playerHasEnoughGold(int price) {
-	return true; 
+	if (player.getGold() > price) {
+		return true;
+	}
 }

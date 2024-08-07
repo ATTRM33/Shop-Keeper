@@ -12,24 +12,20 @@ void Player::addToInventory(Purchaseable* item) {
 }
 
 
-void Player::removeFromInventory(std::string& itemName) {
-    for (auto it = inventory.begin(); it != inventory.end(); ++it) {
-        if ((*it)->getName() == itemName) {
-            delete* it;
-            inventory.erase(it);
-            break;
-        }
+void Player::removeFromInventory(int itemIndex) {
+    if (itemIndex >= 0 && itemIndex < inventory.size()) {
+        delete inventory[itemIndex];
+        inventory.erase(inventory.begin() + itemIndex);
     }
 }
 
 void Player::displayInventory() {
     std::cout << "Player Inventory:\n";
-    for (Purchaseable* item : inventory) {
-        std::cout << item->getName() << " - " << item->getDescription()
-            << " (Price: " << item->getPrice() << ", Quantity: " << item->getQuantity() << ")\n";
-        std::cout << std::endl;
+    for (int i = 0; i < inventory.size(); ++i) {
+        std::cout << i << ". " << inventory[i]->getName() << " - " << inventory[i]->getPrice() << " gold\n";
     }
 }
+
 
 std::vector<Purchaseable*>& Player::getInventory() {
     return inventory;

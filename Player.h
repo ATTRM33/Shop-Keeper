@@ -18,7 +18,7 @@ public:
 	void addGold(int amt) { gold = amt; }
 	void removeGold(int amt) { gold = amt; }
 	void addToInventory(Purchaseable* item);
-	void removeFromInventory(std::string& itemName);
+	void removeFromInventory(int itemIndex);
 	void displayInventory();
 	std::vector<Purchaseable*>& getInventory();
 	

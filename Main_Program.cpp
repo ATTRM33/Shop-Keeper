@@ -11,19 +11,17 @@
 int main() {
 
 	Player player("Player 1", 500);
+	Vendor shopkeeper("Shopkeeper");
 
-	player.addToInventory(new Weapon("Sword", "A sharp blade", 100, 1));
-	player.addToInventory(new Weapon("Bow", "A long range weapon type", 150, 1));
-	player.addToInventory(new Potions("Healing Potion", "Restores health.", 50, 3, true));
+
+	shopkeeper.addItem(new Weapon(50, "Bow"));
+	shopkeeper.addItem(new Weapon(75, "Dagger"));
+	shopkeeper.addItem(new Weapon(100, "Axe"));
+	shopkeeper.addItem(new Potions(50, "Mana Potion"));
+	shopkeeper.addItem(new Potions(50, "Healing Potion"));
+
 	
-	
-	Vendor vendor("ShopKeeper");
-	vendor.addItem(new Weapon("Axe", "A heavy weapon.", 120, 1));
-	vendor.addItem(new Weapon("Dagger", "A small, quick blade.", 80, 1));
-	vendor.addItem(new Potions("Mana Potion", "Restores mana.", 75, 2, false));
-	
-	
-	VendorMenu menu(player, vendor);
+	VendorMenu menu(player, shopkeeper);
 
 	menu.displayMainMenu();
 	
