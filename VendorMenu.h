@@ -7,7 +7,7 @@ class VendorMenu
 	Vendor& vendor;
 	bool playerHasEnoughGold(int price);
 public:
-	VendorMenu(Player p, Vendor v) : player(p), vendor(v) {}
+	VendorMenu(Player& player, Vendor& vendor) : player(player), vendor(vendor) {}
 	void displayMainMenu();
 	void buyMenu();
 	void sellMenu();

@@ -27,6 +27,7 @@ void Player::displayInventory() {
     for (Purchaseable* item : inventory) {
         std::cout << item->getName() << " - " << item->getDescription()
             << " (Price: " << item->getPrice() << ", Quantity: " << item->getQuantity() << ")\n";
+        std::cout << std::endl;
     }
 }
 

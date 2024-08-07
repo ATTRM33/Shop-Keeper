@@ -1,16 +1,16 @@
-#pragma once
+#ifndef POTIONS_H
+#define POTIONS_H
 
 #include "Purchaseable.h"
 
 #include <string>
 
-class Potions : Purchaseable
+class Potions : public Purchaseable
 {private:
-	std::string name;
 	bool isHealingPotion = true;
 public:
-	using Purchaseable::Purchaseable;
+	Potions(std::string n, std::string d, int p, int q, bool healing);
 	bool getIsHealingPotion() { return isHealingPotion; }
-	std::string getName() {return name;}
 };
 
+#endif 

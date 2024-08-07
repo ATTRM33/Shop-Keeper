@@ -33,33 +33,8 @@ void VendorMenu::displayMainMenu() {
 }
 
 void VendorMenu::buyMenu() {
-	int selection;
-
-	std::cout << "**Buy Menu**" << std::endl;
-	std::cout << "What category would you like to buy from?" << std::endl;
-	std::cout << "1. Weapons" << std::endl;
-	std::cout << "2. Armor" << std::endl;
-	std::cout << "3. Potions" << std::endl;
-	std::cout << "4. Back to Main Menu" << std::endl;
-	std::cout << "Enter your choice: ";
-	std::cin >> selection;
-
-	switch (selection) {
-	case 1:
-		displayItems("Weapons");
-		break;
-	case 2:
-		displayItems("Armor");
-		break;
-	case 3:
-		displayItems("Potions");
-		break;
-	case 4:
-		return;
-	default:
-		std::cout << "Invalid choice, please try again." << std::endl;
-	}
-
+	std::string category = "All";
+	displayItems(category);
 	
 }
 void VendorMenu::sellMenu() {
@@ -89,10 +64,10 @@ void VendorMenu::displayItems(const std::string& category) {
 
 	std::string itemName;
 	std::cout << "Enter the name of the item you want to buy: ";
-	std::cin.ignore(); // Ignore leftover newline character
 	std::getline(std::cin, itemName);
 
 	auto& inventory = vendor.getStock();
+
 	for (auto it = inventory.begin(); it != inventory.end(); ++it) {
 		if ((*it)->getName() == itemName) {
 			if (playerHasEnoughGold((*it)->getPrice())) {
