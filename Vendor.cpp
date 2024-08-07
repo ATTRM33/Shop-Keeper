@@ -16,14 +16,15 @@ void Vendor::addItem(Purchaseable* item) {
 }
 
 void Vendor::removeItem(std::string& itemName) {
-    for (auto it = items.begin(); it != items.end(); ++it) {
-        if ((*it)->getName() == itemName) {
-            delete* it;
-            items.erase(it);
-            break;
-        }
+    auto it = std::remove_if(items.begin(), items.end(), [&](Purchaseable* item) {
+        return item->getName() == itemName;
+        });
+    if (it != items.end()) {
+        delete* it; 
+        items.erase(it, items.end()); 
     }
 }
+
 
 void Vendor::displayStock() {
     std::cout << "Shopkeeper Items: " << std::endl;
