@@ -10,9 +10,9 @@ class Purchaseable
 	
 public:
 	Purchaseable(int price) : price(price) {}
-	virtual void buy() = 0;
-	virtual void sell() = 0;
-	virtual std::string getName() = 0;
+	virtual void buy()= 0;
+	virtual void sell() =0;
+	virtual std::string getName()= 0;
 	int getPrice() { return price; }
 };
 

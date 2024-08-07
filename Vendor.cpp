@@ -16,10 +16,9 @@ void Vendor::addItem(Purchaseable* item) {
 }
 
 void Vendor::removeItem(int itemIndex) {
-    if (itemIndex >= 0 && itemIndex < items.size()) {
-        delete items[itemIndex]; 
-        items.erase(items.begin() + itemIndex);
-    }
+    //Purchaseable* temp = items[itemIndex];
+    items[itemIndex] = items[items.size() - 1];
+    items.pop_back();
 }
 
 

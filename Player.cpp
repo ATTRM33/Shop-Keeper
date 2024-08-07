@@ -13,10 +13,8 @@ void Player::addToInventory(Purchaseable* item) {
 
 
 void Player::removeFromInventory(int itemIndex) {
-    if (itemIndex >= 0 && itemIndex < inventory.size()) {
-        delete inventory[itemIndex];
-        inventory.erase(inventory.begin() + itemIndex);
-    }
+    inventory[itemIndex] = inventory[inventory.size() - 1];
+    inventory.pop_back();
 }
 
 void Player::displayInventory() {

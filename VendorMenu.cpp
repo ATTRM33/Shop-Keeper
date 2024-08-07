@@ -61,7 +61,7 @@ void VendorMenu::sellMenu() {
 		player.removeFromInventory(itemIndex);
 		item->sell();
 		std::cout << "You sold " << item->getName() << " for " << item->getPrice() << " gold." << std::endl;
-		//player.getGold() += item->getPrice();
+		player.addGold(player.getGold() + item->getPrice());
 	}
 	else {
 		std::cout << "Invalid item index." << std::endl;
@@ -89,6 +89,7 @@ void VendorMenu::displayItems(const std::string& category) {
 			vendor.removeItem(itemIndex);
 			item->buy();
 			std::cout << "You bought " << item->getName() << "." << std::endl;
+			player.addGold(player.getGold() - item->getPrice());
 		}
 		else {
 			std::cout << "You do not have enough gold to buy this item." << std::endl;
@@ -100,7 +101,10 @@ void VendorMenu::displayItems(const std::string& category) {
 }
 
 bool VendorMenu::playerHasEnoughGold(int price) {
-	if (player.getGold() > price) {
+	if (player.getGold() >= price) {
 		return true;
+	}
+	else {
+		return false;
 	}
 }
