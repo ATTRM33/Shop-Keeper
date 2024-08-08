@@ -128,7 +128,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Armor.cpp" />
-    <ClCompile Include="Items.cpp" />
     <ClCompile Include="Main_Program.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Potions.cpp" />
@@ -139,7 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Armor.h" />
-    <ClInclude Include="Items.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Potions.h" />
     <ClInclude Include="Purchaseable.h" />
