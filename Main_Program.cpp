@@ -14,7 +14,7 @@ int main() {
 	Player player("Player 1", 500);
 	Vendor shopkeeper("Shopkeeper");
 
-	
+	//items added to the shopkeepers inventory
 	shopkeeper.addItem(new Weapon(50, "Bow"));
 	shopkeeper.addItem(new Weapon(75, "Dagger"));
 	shopkeeper.addItem(new Weapon(100, "Axe"));

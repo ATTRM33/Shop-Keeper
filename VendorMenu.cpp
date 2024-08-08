@@ -20,7 +20,7 @@ void VendorMenu::displayMainMenu() {
 
 			switch (selection) {
 			case 1:
-				system("cls");
+				system("cls"); //clear menu to make console cleaner
 				buyMenu();
 				
 				break;
@@ -40,7 +40,7 @@ void VendorMenu::displayMainMenu() {
 
 void VendorMenu::buyMenu() {
 	
-	displayItems("Buy");
+	displayItems("Buy"); //display items will have "buy" displayed above menu
 	
 }
 void VendorMenu::sellMenu() {
@@ -61,7 +61,7 @@ void VendorMenu::sellMenu() {
 		player.removeFromInventory(itemIndex);
 		item->sell();
 		std::cout << "You sold " << item->getName() << " for " << item->getPrice() << " gold." << std::endl;
-		player.addGold(player.getGold() + item->getPrice());
+		player.addGold(player.getGold() + item->getPrice()); //increment player gold
 	}
 	else {
 		std::cout << "Invalid item index." << std::endl;
@@ -71,13 +71,14 @@ void VendorMenu::sellMenu() {
 
 void VendorMenu::displayItems(const std::string& category) {
 
-	vendor.displayStock();
+	vendor.displayStock(); //vendors items
 
 	int itemIndex;
 
 	std::cout << "Enter the index of the item you want to buy: ";
 	std::cin >> itemIndex;
 
+	//reference variable created to store the array of shopkeepers items
 	auto& inventory = vendor.getStock();
 
 	std::cout << std::endl;
@@ -101,6 +102,7 @@ void VendorMenu::displayItems(const std::string& category) {
 	}
 	
 }
+
 
 bool VendorMenu::playerHasEnoughGold(int price) {
 	if (player.getGold() >= price) {

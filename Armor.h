@@ -9,7 +9,7 @@ class Armor : public Purchaseable
 	std::string name;
 public:
 	using Purchaseable::Purchaseable;
-	Armor(int price, std::string name) : Purchaseable(price), name(name) {}
+	Armor(int price, std::string name) : Purchaseable(price), name(name) { armorClass = 15; }
 	virtual void negateDamage();
 	std::string getName() override { return name; }
 	void setName(std::string nm) { name = nm; }

@@ -1,7 +1,7 @@
 #include "Armor.h"
 #include <iostream>
 
-
+//future implementation of attributes to the armor class
 void Armor::negateDamage() {
 
 }

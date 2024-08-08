@@ -21,7 +21,7 @@ void Vendor::removeItem(int itemIndex) {
 }
 
 
-
+//displays the shopkeepers inventory and price
 void Vendor::displayStock() {
     std::cout << "Vendor Stock:\n";
     for (int i = 0; i < items.size(); ++i) {
