@@ -66,6 +66,7 @@ void VendorMenu::sellMenu() {
 	else {
 		std::cout << "Invalid item index." << std::endl;
 	}
+	
 }
 
 void VendorMenu::displayItems(const std::string& category) {
@@ -98,6 +99,7 @@ void VendorMenu::displayItems(const std::string& category) {
 	else {
 		std::cout << "Invalid item index." << std::endl;
 	}
+	
 }
 
 bool VendorMenu::playerHasEnoughGold(int price) {
