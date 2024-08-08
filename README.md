@@ -10,7 +10,7 @@ A simple program that allows the player to buy weapons from the shopkeeper and s
 ## How to run the program
 - build and compile the files.
 ## Program Features
--Buy weapons, armor or items
--Sell weapons, armor or items back
--Remove items from vendors list and add items to players inventory
--Increment or subtract gold from players gold
+- Buy weapons, armor or items
+- Sell weapons, armor or items back
+- Remove items from vendors list and add items to players inventory
+- Increment or subtract gold from players gold
